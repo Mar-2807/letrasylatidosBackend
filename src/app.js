@@ -12,13 +12,21 @@ import topRoutes from './routes/top.routes.js';
 
 const app = express();
 
-const isProduction = process.env.NODE_ENV === 'production';
-const CLIENT_URL = isProduction ? 'https://www.letrasylatidos.com' : 'http://localhost:5173';
-
-app.use(cors({
-    origin: CLIENT_URL,
+const allowedOrigins = [
+    'https://letrasylatidos.com',
+    'https://www.letrasylatidos.com'
+  ];
+  
+  app.use(cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
     credentials: true
-}));
+  }));
 
 app.use(morgan('dev'));
 app.use(express.json());
