@@ -4,8 +4,10 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "build": "npm run build",
-    "start": "npm run start"
+    "install": "npm install",
+    "build": "echo 'Backend build step (si es necesario)'", 
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
   },
   "keywords": [],
   "author": "",
