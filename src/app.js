@@ -13,8 +13,8 @@ import topRoutes from './routes/top.routes.js';
 const app = express();
 
 const allowedOrigins = [
-    'https://letrasylatidos.com',
-    'https://www.letrasylatidos.com'
+    'https://letrasylatidos.com',  
+    'http://localhost:5173' 
   ];
   
   app.use(cors({

@@ -6,7 +6,7 @@ import jwt from 'jsonwebtoken';
 import { TOKEN_SECRET } from '../config.js';
 
 export const welcome = (req, res) => {
-    res.send('Holis');
+    res.send('Backend de letras y latidos');
 };
 
 export const register = async (req, res) => {
