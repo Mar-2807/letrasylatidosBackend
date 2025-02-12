@@ -1,0 +1,55 @@
+post http://localhost:4000/register-teachers HTTP/1.1
+content-type: application/json
+
+{
+    "username": "bug3",
+    "realname": "bug2",
+    "lastname": "bug2bug2bug2bug2",
+    "email":    "bfdfere4545@cbtis194.edu.mx",
+    "password": "bug2bug2bug2",
+    "confirmPassword": "bug2bug2bug2"
+}
+
+###
+
+post http://localhost:4000/login-teachers HTTP/1.1
+content-type: application/json
+
+{
+    "email":    "maestrPbjfd@cbtis194.edu.mx",
+    "password": "11111111"
+}
+
+###
+
+get http://localhost:3000/home
+
+###
+
+get http://localhost:4000/foros
+
+###
+
+post http://localhost:4000/foros HTTP/1.1
+content-type: application/json
+
+{
+    "createdBy": "678e8cd7557d2fb2bbf42ddc",
+    "bookTitle": "El retrato de Dorian Grey",
+    "author": "Oscar Wilde",
+    "grade": "3°",
+    "group": "F",
+    "activityName": "Actividad",
+    "activityDescription": "Trabajen!!"
+}
+
+###
+post http://localhost:4000/actividad HTTP/1.1
+content-type: application/json
+
+{
+    "activityName": "Actividad",
+    "activityDescription": "Trabajen!!"
+}
+
+
