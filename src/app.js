@@ -11,6 +11,7 @@ import likesRoutes from './routes/likes.routes.js';
 import topRoutes from './routes/top.routes.js';
 
 import path from 'path';
+import { fileURLToPath } from 'url';
 
 const app = express();
 
@@ -30,10 +31,7 @@ const allowedOrigins = [
     credentials: true
   }));
 
-app.use(express.static(path.join(__dirname, 'build')));
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
+
 
 app.use(morgan('dev'));
 app.use(express.json());
@@ -45,5 +43,14 @@ app.use(appRoutes);
 app.use(bookRoutes);
 app.use(likesRoutes);
 app.use(topRoutes);
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+app.use(express.static(path.join(__dirname, 'dist')));
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
 
 export default app;
