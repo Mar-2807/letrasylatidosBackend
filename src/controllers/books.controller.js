@@ -8,7 +8,7 @@ import Teacher from '../models/teachers.js';
  */
 export const searchBooks = async (req, res) => {
   const { query } = req.query;
-  if (!query) return res.status(400).json({ message: 'El query es obligatorio.' });
+  if (!query) return res.status(400).json({ message: 'El query es necesario.' });
 
   try {
     // URLs de las APIs externas
