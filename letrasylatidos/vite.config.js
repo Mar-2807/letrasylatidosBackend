@@ -3,5 +3,7 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  base: './', // 👈 Esto es lo que corrige los errores en Netlify
-});
+  server: {
+    port: process.env.PORT || 4173, // Usa el puerto de la variable de entorno de Render
+  },
+})
