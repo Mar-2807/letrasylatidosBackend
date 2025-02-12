@@ -1,3 +1,3 @@
 export const API_URL = import.meta.env.MODE === 'production'
-    ? 'https://www.letrasylatidos.com'
+    ? 'https://letrasylatidosmsm.onrender.com'
     : 'http://localhost:4000';
