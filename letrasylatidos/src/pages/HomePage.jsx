@@ -3,8 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import SearchBooks from "../components/SearchBooks";
 import { useAuth } from "../context/AuthContext";
-
-const apiBaseUrl = "http://localhost:4000"; // Ajusta la URL según tu configuración
+import { API_URL } from './config';
 
 function HomePage() {
     const { user } = useAuth();
@@ -36,7 +35,7 @@ function HomePage() {
     useEffect(() => {
         async function fetchTopBooks() {
             try {
-                const { data } = await axios.get(`${apiBaseUrl}/top-books`);
+                const { data } = await axios.get(`${API_URL}/top-books`);
                 setTopBooks(data);
             } catch (error) {
                 console.error("Error al obtener libros populares:", error);

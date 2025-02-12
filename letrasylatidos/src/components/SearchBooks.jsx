@@ -3,8 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useAuth } from "../context/AuthContext";
 import { postLikeRequest, countLikesRequest, isLikedRequest } from "../api/likes";
-
-const apiBaseUrl = "http://localhost:4000/api/books";
+import { API_URL } from './config';
 
 export default function SearchBooks() {
   const [books, setBooks] = useState([]);
@@ -24,7 +23,7 @@ export default function SearchBooks() {
 
   async function loadInitialBooks() {
     try {
-      const { data } = await axios.get(`${apiBaseUrl}/initial`);
+      const { data } = await axios.get(`${API_URL}/api/books/initial`);
       setBooks(data);
     } catch (error) {
       showNotification("No se pudo cargar los libros iniciales.");
@@ -33,7 +32,7 @@ export default function SearchBooks() {
 
   async function loadSavedBooks() {
     try {
-      const { data } = await axios.get(`${apiBaseUrl}/saved`, { params: { userId } });
+      const { data } = await axios.get(`${API_URL}/api/books/saved`, { params: { userId } });
       setSavedBooks(data);
     } catch (error) {
       showNotification("No se pudieron cargar los libros guardados.");
@@ -51,7 +50,7 @@ export default function SearchBooks() {
     setBooks([]);
 
     try {
-      const { data } = await axios.get(`${apiBaseUrl}/search`, {
+      const { data } = await axios.get(`${API_URL}/api/books/search`, {
         params: { query },
       });
       setBooks(data);
@@ -64,7 +63,7 @@ export default function SearchBooks() {
 
   async function saveBook(book) {
     try {
-      await axios.post(`${apiBaseUrl}`, { book, userId });
+      await axios.post(`${API_URL}/api/books`, { book, userId });
       showNotification("Libro guardado correctamente.");
       loadSavedBooks();
     } catch (error) {
@@ -74,7 +73,7 @@ export default function SearchBooks() {
 
   async function deleteBook(book) {
     try {
-      await axios.delete(`${apiBaseUrl}`, { params: { book, userId } });
+      await axios.delete(`${API_URL}/api/books`, { params: { book, userId } });
       showNotification("Libro eliminado correctamente.");
       loadSavedBooks();
     } catch (error) {

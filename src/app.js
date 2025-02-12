@@ -7,12 +7,16 @@ import authRoutes from './routes/auth.routes.js';
 import forosRoutes from './routes/foros.routes.js';
 import appRoutes from './routes/app.routes.js';
 import bookRoutes from './routes/book.routes.js';
-import likesRoutes from './routes/likes.routes.js'
-import topRoutes from './routes/top.routes.js'
+import likesRoutes from './routes/likes.routes.js';
+import topRoutes from './routes/top.routes.js';
+
 const app = express();
 
+const isProduction = process.env.NODE_ENV === 'production';
+const CLIENT_URL = isProduction ? 'https://www.letrasylatidos.com' : 'http://localhost:5173';
+
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: CLIENT_URL,
     credentials: true
 }));
 

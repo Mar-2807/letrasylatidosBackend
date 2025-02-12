@@ -4,8 +4,7 @@ import { BookCard } from "./SearchBooks";
 import { useParams } from "react-router-dom";
 import { useForos } from "../context/ForosContext";
 import axios from "axios";
-
-const apiBaseUrl = "http://localhost:4000/api/books";
+import { API_URL } from './config';
 
 function ForoBookCard({ foro }) {
   const [book, setBook] = useState(null);
@@ -26,7 +25,7 @@ function ForoBookCard({ foro }) {
       setLoading(true);
       setError("");
       try {
-        const { data } = await axios.get(`${apiBaseUrl}/search`, {
+        const { data } = await axios.get(`${API_URL}/api/books/search`, {
           params: { query: foro.bookTitle }
         });
 

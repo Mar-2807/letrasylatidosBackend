@@ -2,9 +2,9 @@ import mongoose from 'mongoose';
 
 export const connectDB = async () => {
     try {
-        await mongoose.connect('mongodb://localhost/letrasylatidosBD');
+        await mongoose.connect(process.env.MONGODB_URI);
         console.log('DB is connected');
-    } catch {
-        console.log(error);
+    } catch (error) {
+        console.error('Error connecting to DB:', error);
     }
 };
