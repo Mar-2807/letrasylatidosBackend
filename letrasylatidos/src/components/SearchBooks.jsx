@@ -23,7 +23,7 @@ export default function SearchBooks() {
 
   async function loadInitialBooks() {
     try {
-      const { data } = await axios.get(`${API_URL}/api/books/initial`);
+      const { data } = await axios.get(`${API_URL}/api/books/initial`, { withCredentials: true });
       setBooks(data);
     } catch (error) {
       showNotification("No se pudo cargar los libros iniciales.");
@@ -32,7 +32,7 @@ export default function SearchBooks() {
 
   async function loadSavedBooks() {
     try {
-      const { data } = await axios.get(`${API_URL}/api/books/saved`, { params: { userId } });
+      const { data } = await axios.get(`${API_URL}/api/books/saved`, { params: { userId } }, { withCredentials: true });
       setSavedBooks(data);
     } catch (error) {
       showNotification("No se pudieron cargar los libros guardados.");
@@ -50,7 +50,7 @@ export default function SearchBooks() {
     setBooks([]);
 
     try {
-      const { data } = await axios.get(`${API_URL}/api/books/search`, {
+      const { data } = await axios.get(`${API_URL}/api/books/search`, { withCredentials: true }, {
         params: { query },
       });
       setBooks(data);
@@ -63,7 +63,7 @@ export default function SearchBooks() {
 
   async function saveBook(book) {
     try {
-      await axios.post(`${API_URL}/api/books`, { book, userId });
+      await axios.post(`${API_URL}/api/books`, { book, userId }, { withCredentials: true });
       showNotification("Libro guardado correctamente.");
       loadSavedBooks();
     } catch (error) {
@@ -73,7 +73,7 @@ export default function SearchBooks() {
 
   async function deleteBook(book) {
     try {
-      await axios.delete(`${API_URL}/api/books`, { params: { book, userId } });
+      await axios.delete(`${API_URL}/api/books`, { params: { book, userId } }, { withCredentials: true });
       showNotification("Libro eliminado correctamente.");
       loadSavedBooks();
     } catch (error) {

@@ -25,13 +25,13 @@ function WelcomePage() {
                             </button>
                         </Link>
 
-                        <Link to="/">
+                        <Link to="/about">
                             <button className='w-full bg-indigo text-white px-4 py-2 rounded-md my-2 hover:bg-indigo-dark'>
                                 Sobre nosotros
                             </button>
                         </Link>
 
-                        <Link to="/">
+                        <Link to="/contact">
                             <button className='w-full bg-indigo text-white px-4 py-2 rounded-md my-2 hover:bg-indigo-dark'>
                                 Contacto
                             </button>

@@ -35,7 +35,7 @@ function HomePage() {
     useEffect(() => {
         async function fetchTopBooks() {
             try {
-                const { data } = await axios.get(`${API_URL}/top-books`);
+                const { data } = await axios.get(`${API_URL}/top-books`, { withCredentials: true });
                 setTopBooks(data);
             } catch (error) {
                 console.error("Error al obtener libros populares:", error);

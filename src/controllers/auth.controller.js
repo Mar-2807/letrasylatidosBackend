@@ -33,7 +33,11 @@ export const register = async (req, res) => {
         const userSaved = await newUser.save();
 
         const token = await createAccessToken({id: userSaved._id});
-        res.cookie('token', token);
+        res.cookie('token', token, {
+            httpOnly: true,  
+            secure: process.env.NODE_ENV === 'production', 
+            sameSite: 'None'
+        });
         
         res.json({
             id: userSaved._id,
@@ -69,7 +73,11 @@ export const registerTeachers = async (req, res) => {
         const teacherSaved = await newTeacher.save();
 
         const token = await createAccessToken({id: teacherSaved._id});
-        res.cookie('token', token);
+        res.cookie('token', token, {
+            httpOnly: true,  
+            secure: process.env.NODE_ENV === 'production', 
+            sameSite: 'None'
+        });
         
         res.json({
             id: teacherSaved._id,
@@ -97,7 +105,11 @@ export const login = async (req, res) => {
         if(!isMatch) return res.status(400).json(['Contraseña incorrecta']);
 
         const token = await createAccessToken({id: userFound._id});
-        res.cookie('token', token);
+        res.cookie('token', token, {
+            httpOnly: true,  
+            secure: process.env.NODE_ENV === 'production', 
+            sameSite: 'None'
+        });
 
         res.json({
             id: userFound._id,
@@ -125,7 +137,11 @@ export const loginTeachers = async (req, res) => {
         if(!isMatch) return res.status(400).json(['Contraseña incorrecta']);
 
         const token = await createAccessToken({id: userFound._id});
-        res.cookie('token', token);
+        res.cookie('token', token, {
+            httpOnly: true,  
+            secure: process.env.NODE_ENV === 'production', 
+            sameSite: 'None'
+        });
 
         res.json({
             id: userFound._id,
