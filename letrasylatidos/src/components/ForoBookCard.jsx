@@ -4,7 +4,7 @@ import { BookCard } from "./SearchBooks";
 import { useParams } from "react-router-dom";
 import { useForos } from "../context/ForosContext";
 import axios from "axios";
-import { API_URL } from './config';
+import { API_URL } from '../../config.js';
 
 function ForoBookCard({ foro }) {
   const [book, setBook] = useState(null);

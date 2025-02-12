@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import SearchBooks from "../components/SearchBooks";
 import { useAuth } from "../context/AuthContext";
-import { API_URL } from './config';
+import { API_URL } from '../../config.js';
 
 function HomePage() {
     const { user } = useAuth();

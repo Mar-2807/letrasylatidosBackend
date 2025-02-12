@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useAuth } from "../context/AuthContext";
 import { postLikeRequest, countLikesRequest, isLikedRequest } from "../api/likes";
-import { API_URL } from './config';
+import { API_URL } from '../../config.js';
 
 export default function SearchBooks() {
   const [books, setBooks] = useState([]);
