@@ -4,11 +4,12 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "build": "concurrently \"npm run build-backend\" \"npm run build-frontend\"",
-    "build-backend": "npm install && npm run build",
+    "preinstall": "npm install -g concurrently",
+    "build": "npm run build-backend && npm run build-frontend",
+    "build-backend": "cd backend && npm install && npm run build",
     "build-frontend": "cd letrasylatidos && npm install && npm run build",
-    "start": "concurrently \"npm run start-backend\" \"npm run start-frontend\"",    
-    "start-backend": "npm install && node src/index.js",
+    "start": "npm run start-backend && npm run start-frontend",
+    "start-backend": "cd backend && npm install && node src/index.js",
     "start-frontend": "cd letrasylatidos && npm run build && vite preview"
   },
   "keywords": [],
