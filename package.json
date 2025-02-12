@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "install": "npm install",
-    "build": "echo 'Backend build step (si es necesario)'", 
+    "build": "echo 'Backend build step (si es necesario)'",
     "start": "node src/index.js",
     "dev": "nodemon src/index.js"
   },
@@ -27,6 +27,7 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.9.3",
     "morgan": "^1.10.0",
+    "path": "^0.12.7",
     "zod": "^3.24.1"
   },
   "devDependencies": {

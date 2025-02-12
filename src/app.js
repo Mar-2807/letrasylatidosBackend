@@ -10,6 +10,8 @@ import bookRoutes from './routes/book.routes.js';
 import likesRoutes from './routes/likes.routes.js';
 import topRoutes from './routes/top.routes.js';
 
+import path from 'path';
+
 const app = express();
 
 const allowedOrigins = [
@@ -27,6 +29,11 @@ const allowedOrigins = [
     },
     credentials: true
   }));
+
+app.use(express.static(path.join(__dirname, 'build')));
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 app.use(morgan('dev'));
 app.use(express.json());
