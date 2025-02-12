@@ -4,12 +4,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "build": "npm run build-backend && npm run build-frontend",
-    "build-backend": "npm install",
-    "build-frontend": "cd letrasylatidos && npm install && npm run build", 
-    "start": "npm run start-backend && npm run start-frontend",
-    "start-backend": "npm install && node src/index.js",
-    "start-frontend": "cd letrasylatidos && npm run build && vite preview"
+    "build": "npm run build",
+    "start": "npm run start"
   },
   "keywords": [],
   "author": "",
