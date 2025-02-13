@@ -12,8 +12,8 @@ export const searchBooks = async (req, res) => {
 
   try {
     // URLs de las APIs externas
-    const gutendexUrl = `https://gutendex.com/books/?languages=es&search=${encodeURIComponent(query)}`;
-    const openLibUrl = `https://openlibrary.org/search.json?language=es&has_fulltext=true&q=${encodeURIComponent(query)}`;
+    const gutendexUrl = `https://gutendex.com/books/?languages=es,en&search=${encodeURIComponent(query)}`;
+    const openLibUrl = `https://openlibrary.org/search.json?language=es,en&has_fulltext=true&q=${encodeURIComponent(query)}`;
 
     // Hacemos ambas llamadas en paralelo
     const [gutendexResponse, openLibResponse] = await Promise.all([
@@ -62,8 +62,8 @@ export const searchBooks = async (req, res) => {
 export const getInitialBooks = async (req, res) => {
   try {
     const query = "libro";
-    const gutendexUrl = `https://gutendex.com/books/?languages=es&search=${encodeURIComponent(query)}`;
-    const openLibUrl = `https://openlibrary.org/search.json?language=es&has_fulltext=true&q=${encodeURIComponent(query)}`;
+    const gutendexUrl = `https://gutendex.com/books/?languages=es,en&search=${encodeURIComponent(query)}`;
+    const openLibUrl = `https://openlibrary.org/search.json?language=es,en&has_fulltext=true&q=${encodeURIComponent(query)}`;
 
     // Hacemos ambas llamadas en paralelo
     const [gutendexResponse, openLibResponse] = await Promise.all([
